@@ -1,6 +1,7 @@
 Group Members:
 Alex Dang
 Hung Luu
+Pierre Tobgui
 
 Responsibilites:
 Create GUI for instore users
