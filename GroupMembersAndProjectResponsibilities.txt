@@ -1,6 +1,7 @@
 Group Members:
 Alex Dang
 Hung Luu
+Samuel Moon
 
 Responsibilites:
 Create GUI for instore users
