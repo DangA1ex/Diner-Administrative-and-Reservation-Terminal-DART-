@@ -2,10 +2,8 @@ Group Members:
 Alex Dang
 Hung Luu
 Pierre Tobgui
-<<<<<<< HEAD
 Samuel Moon
-=======
->>>>>>> master
+
 
 Responsibilites:
 Create GUI for instore users
