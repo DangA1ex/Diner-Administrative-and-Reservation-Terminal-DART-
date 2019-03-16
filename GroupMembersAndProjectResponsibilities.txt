@@ -1,5 +1,6 @@
 Group Members:
 Alex Dang
+Hung Luu
 
 Responsibilites:
 Create GUI for instore users
@@ -10,4 +11,3 @@ Create website for online users
 Update GUIs based on database information
 Handle database interactions between modules
 Handle payment methods (verification and receipt)
-
