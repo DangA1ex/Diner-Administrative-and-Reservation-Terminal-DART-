@@ -1,42 +1,14 @@
-# Ignore everything
-*
-<<<<<<< HEAD
+# Log file
+*.log
 
-# But do not Ignore these files...
-*.gitignore
+# BlueJ files
+*.ctxt
 
-*src
-*src/**
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
 
-*libs
-*libs/**
-
-
-*.txt
-*.md
-*.jpg
-*.png
-=======
-
-# But do not Ignore these files...
-!.gitignore
-
-!src
-!src/**
-
-!build
-!build/**
-
-!WebContent
-!WebContent/**
-
-!libs
-!libs/**
-
-=======
 # Package Files #
 *.jar
-*.class
 *.war
 *.nar
 *.ear
@@ -44,15 +16,5 @@
 *.tar.gz
 *.rar
 
-!*.txt
-!*.md
-!*.jpg
-!*.png
->>>>>>> master
-
-
-# MAC HIDDEN FILES
-.DS_Store
-
-
-#Additional Specific files to Ignore
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
