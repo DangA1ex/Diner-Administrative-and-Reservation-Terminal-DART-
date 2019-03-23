@@ -2,19 +2,19 @@
 *
 
 # But do not Ignore these files...
-!.gitignore
+*.gitignore
 
-!src
-!src/**
+*src
+*src/**
 
-!libs
-!libs/**
+*libs
+*libs/**
 
 
-!*.txt
-!*.md
-!*.jpg
-!*.png
+*.txt
+*.md
+*.jpg
+*.png
 
 
 # MAC HIDDEN FILES
