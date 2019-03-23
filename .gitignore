@@ -7,19 +7,25 @@
 !src
 !src/**
 
+!build
+!build/**
+
+!WebContent
+!WebContent/**
+
 !libs
 !libs/**
 
-<<<<<<< HEAD
 =======
 # Package Files #
+*.jar
+*.class
 *.war
 *.nar
 *.ear
 *.zip
 *.tar.gz
 *.rar
->>>>>>> AlexDang
 
 !*.txt
 !*.md
