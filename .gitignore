@@ -1,5 +1,6 @@
 # Ignore everything
 *
+<<<<<<< HEAD
 
 # But do not Ignore these files...
 !.gitignore
@@ -13,6 +14,21 @@
 !WebContent
 !WebContent/**
 
+=======
+
+# But do not Ignore these files...
+!.gitignore
+
+!src
+!src/**
+
+!build
+!build/**
+
+!WebContent
+!WebContent/**
+
+>>>>>>> AlexDang
 !libs
 !libs/**
 
