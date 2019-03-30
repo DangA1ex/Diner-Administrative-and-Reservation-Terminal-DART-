@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet({ "/HelloWorld", "/a", "/b", "/member/*" })
-public class TestWeb extends HttpServlet {
+public class HelloWorld extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    public TestWeb()
+    public HelloWorld()
     {
         super();
     }
