@@ -9,22 +9,22 @@ public class Menu {
 	ArrayList<String> photo;
 	ArrayList<Ingredients> ingredients;
 	String description;
-	int cost;
+	Float price;
+	Integer quantity;
 	
-	public Menu(Integer id, String name, String description, int cost, ArrayList<Ingredients> ingredients) {
-		this.id=id;
-		this.name=name;
-		this.cost=cost;
-		this.photo = new ArrayList<String>();
-		this.ingredients=ingredients; 
+	public Menu (Integer id, String name, Float price, Integer quantity) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
 	}
 	
 	public ArrayList<Ingredients> getIngredients() {
 		return ingredients;
 	}
 
-	public int getCost() {
-		return cost;
+	public Float getPrice() {
+		return price;
 	}
 
 	public String getName() {

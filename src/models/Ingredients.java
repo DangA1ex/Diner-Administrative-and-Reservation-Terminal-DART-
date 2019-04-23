@@ -20,6 +20,12 @@ public class Ingredients {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
+		}
 	
+	public boolean checkAvailable() {
+		if(this.quantity==0) {
+			return false;
+		}
+		return true;
+	}
 }
