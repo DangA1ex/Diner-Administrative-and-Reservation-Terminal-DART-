@@ -15,8 +15,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import models.Menu;
+import models.TableUser;
 
 //Code that implements the Order function of the code 
 //As of now only adds items to table 1
@@ -41,6 +43,22 @@ public class AddController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
+		// Get a reference to the session
+		HttpSession session = request.getSession();
+		
+		// Get a reference to the NoteUser object stored in the session
+		TableUser user = (TableUser) session.getAttribute("user");
+		
+		// If the User doesn't exist, then they didn't login. So, kick them back to Login
+		if (user == null) {
+			response.sendRedirect("Login");
+			return;
+		}
+		
+		System.out.print(user.getId());
+		
 		List<Menu> menus = new ArrayList<Menu>();
 		Connection c = null;
 		try {
@@ -69,6 +87,7 @@ public class AddController extends HttpServlet {
 		}
 
 		request.setAttribute("menus", menus);
+		request.setAttribute("tableId", user.getId());
 		request.getRequestDispatcher("/WEB-INF/Add.jsp").forward(request, response);
 	}
 

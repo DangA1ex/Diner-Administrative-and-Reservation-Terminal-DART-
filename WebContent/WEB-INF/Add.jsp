@@ -17,23 +17,30 @@ table {
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<p class="text-right"><a href="Logout">Logout</a></p>
+
 <title>ORDERS</title>
 </head>
 <body>
 <form action = "OrderController" method = "get">
-<h1>ORDERS</h1>
-
-
-<c:forEach items="${menus}" var="entry">
-	<table border="2">
-		<tr>
-			<td><h4><input type = "checkbox" name = "food" value =${entry.id}> ${entry.name} </h4></td>
-		</tr>
-		
-	</table>
-</c:forEach>
-
-
+<div class="card">
+	<div class="card-body">
+		<h1>ORDERS</h1>
+		<c:forEach items="${menus}" var="entry">
+			<table border="2">
+				<tr>
+					<td>
+						<h4>
+							<input type = "checkbox" name = "food" value =${entry.id}> ${entry.name} 
+							<input type="hidden" name="tableId" value="${tableId}" />
+						</h4>
+					</td>
+				</tr>
+				
+			</table>
+		</c:forEach>
+	</div>
+</div>
 <p><input type="submit" value="Order"></p>
 </form>
 </body>

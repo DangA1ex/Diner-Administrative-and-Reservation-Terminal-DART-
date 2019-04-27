@@ -34,12 +34,13 @@ public class OrderController extends HttpServlet {
 
 			c = DriverManager.getConnection(url, username, password);
 			Statement stmt = c.createStatement();
+			String tableId = request.getParameter("tableId");
 			String[] foods = request.getParameterValues("food");
 			//Query Code That Adds the orders into the database
 			//Will update when session is implemented
 			for (String food : foods) {
 				stmt.executeUpdate("INSERT INTO orders2 (tableId, orders, completed) SELECT t.tableID, m.name, 'false' "+
-				"FROM tables t, Menus m WHERE t.tableID = 1 and m.id = '" + food + "'");
+				"FROM tables t, Menus m WHERE t.tableID = " + tableId + " and m.id = '" + food + "'");
 			}
 			
 			

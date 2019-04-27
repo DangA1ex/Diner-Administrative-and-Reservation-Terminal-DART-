@@ -20,6 +20,11 @@ table {
 <title>ORDERS</title>
 </head>
 <body>
+<p class="text-right"><a href="Clear">Clear</a></p>
+<p class="text-right"><a href="Tables">Refresh</a></p>
+
+<div class="card">
+	<div class="card-body">
 <h1>ORDERS</h1>
 
 
@@ -41,9 +46,9 @@ table {
 </c:forEach>
 
 
+	</div>
+</div>
 
-<p><a href="Clear">Clear</a></p>
-<p><a href="Tables">Refresh</a></p>
 
 </body>
 </html>
