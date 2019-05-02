@@ -21,7 +21,7 @@ table {
 </head>
 <body>
 <p class="text-right"><a href="Clear">Clear</a></p>
-<p class="text-right"><a href="Tables">Refresh</a></p>
+<p class="text-right"> <a href="Tables">Refresh</a></p>
 
 <div class="card">
 	<div class="card-body">
@@ -31,10 +31,15 @@ table {
 <c:forEach items="${tables}" var="entry">
 	<table border="2">
 		<tr>
-			<td><h1>${entry.tableNum}</h1></td>
+			<td colspan="2"><h1>${entry.tableNum}</h1></td>
 		</tr>
+		<tr>
+    		<th>Item</th>
+    		<th>Quantity</th>
+  		</tr>
 		<c:forEach items="${orders}" var="order">
 			<c:if test= "${entry.tableID == order.tableID}">
+
 				<tr>
 					<td>
 						<h4><a href="UpdateOrderController?id=${order.orderID}&name=${order.orders}">${order.orders}</a></h4>

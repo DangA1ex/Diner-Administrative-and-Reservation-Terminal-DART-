@@ -57,7 +57,6 @@ public class AddController extends HttpServlet {
 			return;
 		}
 		
-		System.out.print(user.getId());
 		
 		List<Menu> menus = new ArrayList<Menu>();
 		Connection c = null;

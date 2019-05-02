@@ -1,20 +1,22 @@
 package models;
 
-import java.util.ArrayList;
 
 public class Order {
 	Integer orderID;
 	Integer tableID;
-	//ArrayList<Menu> order;
 	String orders;
 	String completed;
+	int quantity;
+	float price;
 	
-	public Order(Integer orderID,Integer tableID, String orders,String completed) {
+	public Order(Integer orderID,Integer tableID, String orders,String completed, int quantity, float price) {
 		super();
 		this.orders = orders;
 		this.orderID = orderID;
 		this.tableID = tableID;
 		this.completed = completed;
+		this.quantity = quantity;
+		this.price = price;
 	}
 
 	public Integer getOrderID() {
