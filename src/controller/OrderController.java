@@ -50,6 +50,7 @@ public class OrderController extends HttpServlet {
 				stmt.executeUpdate("INSERT INTO orders2 (tableId, orders, completed, cost) "
 						+ "SELECT t.tableID, m.name, 'false', m.price "
 						+ "FROM tables t, Menus m WHERE t.tableID = " + tableId + " and m.id = '" + foods[i] + "'");
+				stmt.executeUpdate("UPDATE Menus SET quantity = quantity - 1 WHERE id = '" + foods[i] + "'");
 			}
 			
 			
