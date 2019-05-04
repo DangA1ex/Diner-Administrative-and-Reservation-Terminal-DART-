@@ -13,14 +13,6 @@
 	password=".ki7x#5L" />
 
 
-
-<sql:query var="do">
-
-Select COUNT(cost) from orders2 ;
-
-</sql:query>
-
-
 <sql:query var="items">
 		
 Select * from Menus;
@@ -47,51 +39,6 @@ Select * from tables;
 <body>
 
 	<h1>Admin</h1>
-
-
-
-
-
-
-	<%-- 
-	<button onclick="myFunction()">Copy Text</button>
-
-	<script>
-		function myFunction() {
-
-		}
-	</script>
-
-	<table border="1" cellpadding="5" width="500">
-
-		<tr>
-			<th>Name</th>
-
-			<th>Link</th>
-		</tr>
-
-		<c:forEach items="${dbEntries}" var="entry">
-			<tr>
-
-				<td><c:out value="${entry}" /></td>
-				<td><input type="submit" name="Link" value="edit"></td>
-
-			</tr>
-		</c:forEach>
-	</table>
-
-	<br>
---%>
-
-
-
-	
-
-
-
-
-
-	
 
 	<br>
 
@@ -120,10 +67,6 @@ Select * from tables;
 
 	<br>
 
-
-	<%
-		int cost = 0;
-	%>
 	<h3>Order Database</h3>
 	<br>
 	<table border="1">
@@ -141,22 +84,11 @@ Select * from tables;
 				<%-- <td><input type="submit" name="edit" value="edit"></td>--%>
 				<c:forEach items="${row}" var="col">
 					<td>${col}</td>
-
-					<%
-						if ("${orders.columnNames}" == "cost") {
-
-									cost += Double.parseDouble("${row}");
-									
-								}
-					%>
-
+					
 				</c:forEach>
 			</tr>
 		</c:forEach>
 	</table>
-
-
-
 
 	<h3>Menu Database</h3>
 	<br>
@@ -182,9 +114,12 @@ Select * from tables;
 	</table>
 
 
-<br>
+	<br>
 
 
-<h3>Total Cost of The Day: <c:out value= "${cost}"/></h3>
+	<h3>
+		Total Cost of The Day:
+		<c:out value="${cost}" />
+	</h3>
 </body>
 </html>
