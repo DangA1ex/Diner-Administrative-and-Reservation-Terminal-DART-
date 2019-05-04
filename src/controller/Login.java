@@ -100,7 +100,7 @@ public class Login extends HttpServlet {
 		}
 		else {
 			request.getSession().setAttribute("user", user);
-			response.sendRedirect("Add");
+			response.sendRedirect("OMM");
 		}
 	}
 

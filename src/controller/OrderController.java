@@ -34,7 +34,7 @@ public class OrderController extends HttpServlet {
 
 			c = DriverManager.getConnection(url, username, password);
 			Statement stmt = c.createStatement();
-			String tableId = request.getParameter("tableId");
+			String tableId = request.getParameter("tableID");
 			String[] foods = request.getParameterValues("food");
 			//String[] quantity = request.getParameterValues("quantity");
 			//Query Code That Adds the orders into the database

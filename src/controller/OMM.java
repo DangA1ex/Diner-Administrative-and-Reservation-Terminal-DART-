@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -20,30 +20,28 @@ import javax.servlet.http.HttpSession;
 import models.Menu;
 import models.TableUser;
 
-//Code that implements the Order function of the code 
-//As of now only adds items to table 1
-//Displays the items from Menus database
-//Uses Add.jsp for its main html
-//You may start run from this controller to open the Menu Page
 
-@WebServlet("/kitchen/Add")
-public class AddController extends HttpServlet {
 
+/**
+ * Servlet implementation class OMM
+ */
+@WebServlet("/kitchen/OMM")
+public class OMM extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-
+		
+		// Include the JDBC Driver for MySQL
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			throw new ServletException(e);
 		}
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
 		
 		// Get a reference to the session
 		HttpSession session = request.getSession();
@@ -58,22 +56,37 @@ public class AddController extends HttpServlet {
 		}
 		
 		
-		List<Menu> menus = new ArrayList<Menu>();
-		Connection c = null;
+		Connection c = null; // Defined here for scope
 		try {
+
 			String url = "jdbc:mysql://cs3.calstatela.edu/cs3220stu96";
+
 			String username = "cs3220stu96";
 			String password = ".ki7x#5L";
+
+			// Connect to the database
 			c = DriverManager.getConnection(url, username, password);
+
+			// Create a statement object
 			Statement stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * from Menus");
+
+			// Use the statement object to execute a query, and get a result set
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Menus");
+
+			ArrayList<Menu> menu = new ArrayList<Menu>();
 
 			while (rs.next()) {
-				Menu menu = new Menu(rs.getInt("id"), rs.getString("name"), rs.getFloat("price"), rs.getInt("quantity"));
-				menus.add(menu);
+
+				Integer id = rs.getInt("id");
+				String name = rs.getString("name");
+				Float price = rs.getFloat("price");
+				Integer quantity = rs.getInt("quantity");
+
+				menu.add(new Menu(id, name, price, quantity));
 			}
-			
-			
+
+			// Add the menu arraylist to the REQUEST scope
+			request.setAttribute("menu", menu);
 		} catch (SQLException e) {
 			throw new ServletException(e);
 		} finally {
@@ -84,15 +97,18 @@ public class AddController extends HttpServlet {
 				throw new ServletException(e);
 			}
 		}
-
-		request.setAttribute("menus", menus);
+		
 		request.setAttribute("tableId", user.getId());
-		request.getRequestDispatcher("/WEB-INF/Add.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/OMM.jsp").forward(request, response);
+		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	
 
 }
+

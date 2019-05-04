@@ -6,17 +6,27 @@ public class Order {
 	Integer tableID;
 	String orders;
 	String completed;
-	int quantity;
 	float price;
 	
-	public Order(Integer orderID,Integer tableID, String orders,String completed, int quantity, float price) {
+	public Order(Integer orderID,Integer tableID, String orders,String completed, float price) {
 		super();
 		this.orders = orders;
 		this.orderID = orderID;
 		this.tableID = tableID;
 		this.completed = completed;
-		this.quantity = quantity;
 		this.price = price;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public String getCompleted() {
+		return completed;
 	}
 
 	public Integer getOrderID() {

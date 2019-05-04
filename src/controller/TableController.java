@@ -57,7 +57,7 @@ public class TableController extends HttpServlet {
 			while (rs.next()) {
 
 				Order order = new Order(rs.getInt("orderID"),rs.getInt("tableID"), rs.getString("orders"), 
-						rs.getString("completed"),rs.getInt("quantity"), rs.getFloat("cost"));
+						rs.getString("completed"), rs.getFloat("cost"));
 				if (order.isCompleted() == false){
 					orders.add(order);
 				}

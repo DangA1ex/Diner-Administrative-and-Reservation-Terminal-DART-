@@ -9,6 +9,6 @@
 <title>ORDERS</title>
 </head>
  <body>
-      <c:redirect url = "/kitchen/Add"/>
+      <c:redirect url = "/kitchen/OMM"/>
    </body>
 </html>

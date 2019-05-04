@@ -31,12 +31,9 @@ table {
 <c:forEach items="${tables}" var="entry">
 	<table border="2">
 		<tr>
-			<td colspan="2"><h1>${entry.tableNum}</h1></td>
+			<td><h1>${entry.tableNum}</h1></td>
 		</tr>
-		<tr>
-    		<th>Item</th>
-    		<th>Quantity</th>
-  		</tr>
+
 		<c:forEach items="${orders}" var="order">
 			<c:if test= "${entry.tableID == order.tableID}">
 
