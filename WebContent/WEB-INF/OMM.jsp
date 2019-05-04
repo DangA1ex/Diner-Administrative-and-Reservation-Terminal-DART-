@@ -31,7 +31,13 @@ body {
 	            <div id="drop">
 	            </div>
 	            <hr>
-	            <button>Submit</button>
+	            <form>
+	            	<input type="hidden" name="food" id="order1">
+	            	<input type="hidden" name="food" id="order2">
+	            	<input type="hidden" name="food" id="order3">
+	            	<input type="hidden" name="tableID" value="${tableId}">
+	            	<input type="submit" value="Submit" id="submit">
+	            </form>
 	        </div>
 	
 	        <h1>DART</h1>
@@ -57,7 +63,8 @@ body {
 	</div>
 	
 	<script>
-		
+		document.getElementById("submit").addEventListener("click", submitOrder);
+	
 		function item(name, id) {
 			this.name = name;
 			this.id = id;
@@ -88,6 +95,24 @@ body {
 			} else {
 				alert("max order");
 			}
+		}
+		
+		function submitOrder() {
+			var order1;
+			var order2;
+			var order3;
+			
+			for(var i = 0; i < order.length; i++) {
+				if(i == 0) {
+					order1 = document.getElementById("order1").value = order[0].id;
+				} else if (i == 1) {
+					order2 = document.getElementById("order2").value = order[1].id;
+				} else {
+					order3 = document.getElementById("order3").value = order[2].id;
+				}
+			}
+			
+			order.length = 0;
 		}
 		
 	</script>
