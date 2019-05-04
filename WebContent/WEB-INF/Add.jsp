@@ -24,7 +24,7 @@ table {
 
 <body>
 <p class="text-right"><a href="Logout">Logout</a></p>
-<form action = "OrderController" method = "get">
+<form action = "AddController" method = "get">
 <div class="card">
 	<div class="card-body">
 		<h1>ORDERS</h1>

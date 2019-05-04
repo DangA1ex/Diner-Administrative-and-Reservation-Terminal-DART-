@@ -36,17 +36,20 @@ public class OrderController extends HttpServlet {
 			Statement stmt = c.createStatement();
 			String tableId = request.getParameter("tableId");
 			String[] foods = request.getParameterValues("food");
-			String[] quantity = request.getParameterValues("quantity");
+			//String[] quantity = request.getParameterValues("quantity");
 			//Query Code That Adds the orders into the database
 			//Will update when session is implemented
 			for (int i = 0; i < foods.length ; i++) {
-				if (!quantity[i].equals("0")) {
+				/*if (!quantity[i].equals("0")) {
 					int quant = Integer.parseInt(quantity[i]);
 					stmt.executeUpdate("INSERT INTO orders2 (tableId, orders, completed, quantity, cost) "
 							+ "SELECT t.tableID, m.name, 'false', '" + quant + "', m.price * "+ quant + " "
 							+ "FROM tables t, Menus m WHERE t.tableID = " + tableId + " and m.id = '" + foods[i] + "'");
-					//stmt.executeUpdate("");
-				}
+					stmt.executeUpdate("");
+				}*/
+				stmt.executeUpdate("INSERT INTO orders2 (tableId, orders, completed, cost) "
+						+ "SELECT t.tableID, m.name, 'false', m.price "
+						+ "FROM tables t, Menus m WHERE t.tableID = " + tableId + " and m.id = '" + foods[i] + "'");
 			}
 			
 			
