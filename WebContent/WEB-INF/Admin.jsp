@@ -35,6 +35,13 @@ Select * from tables;
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+
+
 </head>
 <body>
 
@@ -45,15 +52,17 @@ Select * from tables;
 	<h3>Table Database</h3>
 	<br>
 
-	<table border="1">
+	<table class="table">
 
-		<tr>
-			<%--<th>Modify</th> --%>
+		<thead class="thead-dark">
+			<tr>
+				<%--<th>Modify</th> --%>
 
-			<c:forEach items="${tables.columnNames}" var="col">
-				<th><c:out value="${col}" /></th>
-			</c:forEach>
-		</tr>
+				<c:forEach items="${tables.columnNames}" var="col">
+					<th><c:out value="${col}" /></th>
+				</c:forEach>
+			</tr>
+		</thead>
 
 		<c:forEach items="${tables.rowsByIndex}" var="row">
 			<tr>
@@ -69,22 +78,24 @@ Select * from tables;
 
 	<h3>Order Database</h3>
 	<br>
-	<table border="1">
 
-		<tr>
-			<%--<th>Modify</th> --%>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<%--<th>Modify</th> --%>
 
-			<c:forEach items="${orders.columnNames}" var="col">
-				<th><c:out value="${col}" /></th>
-			</c:forEach>
-		</tr>
+				<c:forEach items="${orders.columnNames}" var="col">
+					<th><c:out value="${col}" /></th>
+				</c:forEach>
+			</tr>
+		</thead>
 
 		<c:forEach items="${orders.rowsByIndex}" var="row">
 			<tr>
 				<%-- <td><input type="submit" name="edit" value="edit"></td>--%>
 				<c:forEach items="${row}" var="col">
 					<td>${col}</td>
-					
+
 				</c:forEach>
 			</tr>
 		</c:forEach>
@@ -93,15 +104,19 @@ Select * from tables;
 	<h3>Menu Database</h3>
 	<br>
 
-	<table border="1">
+	<table class="table">
 
-		<tr>
-			<%--<th>Modify</th> --%>
+		<thead class="thead-dark">
 
-			<c:forEach items="${items.columnNames}" var="col">
-				<th><c:out value="${col}" /></th>
-			</c:forEach>
-		</tr>
+			<tr>
+				<%--<th>Modify</th> --%>
+
+				<c:forEach items="${items.columnNames}" var="col">
+					<th><c:out value="${col}" /></th>
+				</c:forEach>
+			</tr>
+		</thead>
+
 
 		<c:forEach items="${items.rowsByIndex}" var="row">
 			<tr>
