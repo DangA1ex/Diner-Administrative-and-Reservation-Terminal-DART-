@@ -57,6 +57,7 @@ public class OMM extends HttpServlet {
 
 				Integer id = rs.getInt("id");
 				String name = rs.getString("name");
+				System.out.println(name);
 				Float price = rs.getFloat("price");
 				Integer quantity = rs.getInt("quantity");
 

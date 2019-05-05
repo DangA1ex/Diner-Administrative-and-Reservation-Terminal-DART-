@@ -43,18 +43,20 @@ body {
 	        <h1>DART</h1>
     	</nav>
 
-		<div class="row">
+
+	 	<div class="row">
 			<c:forEach items="${menu}" var="menu" varStatus="status">
-				<div class="col-sm-3">
-					<div class="card" onclick="addItem('${menu.name}',${menu.id})">
-						<div class="card-body">
-				        	<h5 class="card-title"><c:out value="${menu.name}"/></h5>
-				    		<p class="card-text"><c:out value="${menu.price}"/></p>
-						</div>
+				<div style="padding:5px;margin:10px" class="card col-3" onclick="addItem('${menu.name}',${menu.id})">
+					<img class="img-card-top" style="width:260px;height;auto" src="images/${menu.name}.jpg" alt="${menu.name}">
+					<div class="card-body">
+			        	<h5 class="card-title"><c:out value="${menu.name}"/></h5>
+			    		<p class="card-text"><c:out value="${menu.price}"/></p>
 					</div>
 				</div>
 			</c:forEach>
+			</div>
 		</div>
+
 		
 		<nav class="navbar fixed-bottom navbar-dark bg-dark">
 	        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Service</button>
