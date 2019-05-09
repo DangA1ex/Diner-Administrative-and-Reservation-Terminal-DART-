@@ -24,10 +24,10 @@ body {
 	<div class="container">
 
 		<nav class="navbar fixed-top navbar-dark bg-dark">
-	        <button class="navbar-toggler" data-toggle="dropdown" id="dropButton">
+	        <button class="navbar-toggler" data-toggle="dropdown">
 	        	<span class="navbar-toggler-icon"></span>
 	        </button>
-	        <div class="dropdown-menu">
+	        <div class="dropdown-menu" id="dropButton">
 	            <div id="drop">
 	            </div>
 	            <hr>
@@ -45,24 +45,30 @@ body {
 
 		<div class="row">
 			<c:forEach items="${menu}" var="menu" varStatus="status">
-				<div class="col-sm-3">
-					<div class="card" onclick="addItem('${menu.name}',${menu.id})">
-						<div class="card-body">
-				        	<h5 class="card-title"><c:out value="${menu.name}"/></h5>
-				    		<p class="card-text"><c:out value="${menu.price}"/></p>
+				<c:if test="${menu.quantity > 0}">
+					<div class="col-sm-3">
+						<div class="card" onclick="addItem('${menu.name}',${menu.id})">
+							<div class="card-body">
+								<img class="img-card-top" style="width:260px;height;auto" src="/images/${menu.name}.jpg" alt="${menu.name}">
+					        	<h5 class="card-title"><c:out value="${menu.name}"/></h5>
+							</div>
 						</div>
 					</div>
-				</div>
+				</c:if>
 			</c:forEach>
 		</div>
 		
 		<nav class="navbar fixed-bottom navbar-dark bg-dark">
 	        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Service</button>
+	        <div id="botnav"></div>
 	        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Check</button>
     	</nav>
 	</div>
 	
 	<script>
+		document.getElementById("dropButton").addEventListener("click", function(e) {
+			e.stopPropagation();
+		});
 		document.getElementById("submit").addEventListener("click", submitOrder);
 	
 		function item(name, id) {
@@ -85,15 +91,15 @@ body {
 				remove.className = "btn btn-danger btn-number";
 				remove.onclick = function(id){
 					order.pop(id);
-					
+					this.parentElement.parentElement.removeChild(this.parentElement);
 				}
 				food.append(remove);
 				
-				console.log(order);
-				
 				document.getElementById("drop").appendChild(food);
+				
+				alert(name.data + "was added.");
 			} else {
-				alert("max order");
+				alert("Max 3 items per order.");
 			}
 		}
 		
@@ -114,7 +120,6 @@ body {
 			
 			order.length = 0;
 		}
-		
 	</script>
 </body>
 </html>

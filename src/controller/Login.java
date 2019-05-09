@@ -67,7 +67,8 @@ public class Login extends HttpServlet {
     		out.println("        <button type=\"submit\" class=\"btn btn-primary\">Login</button>");
     		out.println("    </div>");
     		out.println("</form>");
-    		out.println("<p>Don't have an account? <a href=\"Register\">Sign-Up!</a></p>");
+    		out.println("<p><a href=\"Admin\">Admin</a></p>");
+    		out.println("<p><a href=\"Tables\">Kitchen Display</a></p>");
     		
     		out.println("</div>");
     		out.println("</body>");
