@@ -69,7 +69,10 @@ public class Login extends HttpServlet {
     		out.println("</form>");
     		out.println("<p><a href=\"Admin\">Admin</a></p>");
     		out.println("<p><a href=\"Tables\">Kitchen Display</a></p>");
-    		
+    		out.println("<p><a href=\"OMM?tableId=1\">Table 1</a></p>");
+    		out.println("<p><a href=\"OMM?tableId=2\">Table 2</a></p>");
+    		out.println("<p><a href=\"OMM?tableId=3\">Table 3</a></p>");
+    		out.println("<p><a href=\"OMM?tableId=4\">Table 4</a></p>");
     		out.println("</div>");
     		out.println("</body>");
     		out.println("</html>");
