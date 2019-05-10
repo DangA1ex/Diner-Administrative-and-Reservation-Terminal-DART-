@@ -48,10 +48,9 @@ body {
 				<c:if test="${menu.quantity > 0}">
 					<div class="col-sm-3">
 						<div class="card" onclick="addItem('${menu.name}',${menu.id})">
+							<img class="img-card-top" style="width:254.5px;height:auto" src="../images/${menu.name}.jpg" alt="${menu.name}">
 							<div class="card-body">
-								<img class="img-card-top" style="width:260px;height;auto" src="images/${menu.name}.jpg" alt="${menu.name}">
 					        	<h5 class="card-title"><c:out value="${menu.name}"/></h5>
-					    		<p class="card-text"><c:out value="${menu.price}"/></p>
 							</div>
 						</div>
 					</div>
