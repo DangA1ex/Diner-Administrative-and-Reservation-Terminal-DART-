@@ -47,9 +47,9 @@ public class Login extends HttpServlet {
     		out.println("<body>");
     		out.println("<div class=\"container\">");
     		
-    		out.println("<h1 class=\"display-1\">Login</h1>");
+    		out.println("<h1 class=\"display-1\">Pick Your Table</h1>");
     		
-    		out.println("<form action=\"Login\" method=\"post\">");
+    		/*out.println("<form action=\"Login\" method=\"post\">");
     		
     		if (request.getAttribute("loginError") != null) {
     			out.println("<p class=\"text-light bg-danger\">Invalid username and/or password.</p>");
@@ -67,9 +67,14 @@ public class Login extends HttpServlet {
     		out.println("        <button type=\"submit\" class=\"btn btn-primary\">Login</button>");
     		out.println("    </div>");
     		out.println("</form>");
-    		out.println("<p><a href=\"Admin\">Admin</a></p>");
-    		out.println("<p><a href=\"Tables\">Kitchen Display</a></p>");
-    		
+    		*/
+
+    		out.println("<p><h2><a href=\"OMM?tableId=1\">Table 1</a></h2></p>");
+    		out.println("<p><h2><a href=\"OMM?tableId=2\">Table 2</a></h2></p>");
+    		out.println("<p><h2><a href=\"OMM?tableId=3\">Table 3</a></h2></p>");
+    		out.println("<p><h2><a href=\"OMM?tableId=4\">Table 4</a></h2></p>");
+    		//out.println("<p><a href=\"Admin\" target = \"_blank\">Admin</a></p>");
+    		out.println("<p><a href=\"Tables\" target = \"_blank\">Kitchen Display</a></p>");
     		out.println("</div>");
     		out.println("</body>");
     		out.println("</html>");

@@ -41,7 +41,7 @@ public class OMM extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+/*
 		
 		// Get a reference to the session
 		HttpSession session = request.getSession();
@@ -55,6 +55,9 @@ public class OMM extends HttpServlet {
 			return;
 		}
 		
+*/		
+		
+		String tableId = request.getParameter("tableId");
 		
 		Connection c = null; // Defined here for scope
 		try {
@@ -97,8 +100,8 @@ public class OMM extends HttpServlet {
 				throw new ServletException(e);
 			}
 		}
-		
-		request.setAttribute("tableId", user.getId());
+
+		request.setAttribute("tableId", tableId);
 		request.getRequestDispatcher("/WEB-INF/OMM.jsp").forward(request, response);
 		
 	}

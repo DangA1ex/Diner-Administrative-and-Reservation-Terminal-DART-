@@ -135,6 +135,7 @@ Select * from tables;
 	<h3>
 		Total Cost of The Day:
 		<c:out value="${cost}" />
+		<a href="ClearData?id= ${entry.courseID}"> Clear Orders</a>
 	</h3>
 </body>
 </html>

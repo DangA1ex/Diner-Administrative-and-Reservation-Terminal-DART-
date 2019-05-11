@@ -26,6 +26,7 @@ public class OrderController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String tableId;
 		Connection c = null;
 		try {
 			String url = "jdbc:mysql://cs3.calstatela.edu/cs3220stu96";
@@ -34,7 +35,8 @@ public class OrderController extends HttpServlet {
 
 			c = DriverManager.getConnection(url, username, password);
 			Statement stmt = c.createStatement();
-			String tableId = request.getParameter("tableID");
+			tableId = request.getParameter("tableID");
+			//reset = tableId;
 			String[] foods = request.getParameterValues("food");
 			//String[] quantity = request.getParameterValues("quantity");
 			//Query Code That Adds the orders into the database
@@ -51,6 +53,7 @@ public class OrderController extends HttpServlet {
 						+ "SELECT t.tableID, m.name, 'false', m.price "
 						+ "FROM tables t, Menus m WHERE t.tableID = " + tableId + " and m.id = '" + foods[i] + "'");
 				stmt.executeUpdate("UPDATE Menus SET quantity = quantity - 1 WHERE id = '" + foods[i] + "'");
+				
 			}
 			
 			
@@ -64,6 +67,7 @@ public class OrderController extends HttpServlet {
 				throw new ServletException(e);
 			}
 		}
+		request.setAttribute("tableId", tableId);
 		request.getRequestDispatcher("/WEB-INF/AddUpdate.jsp").forward(request, response);
 
 	}

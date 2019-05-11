@@ -22,7 +22,7 @@ table {
 <body>
 <p class="text-right"><a href="Clear">Clear</a></p>
 <p class="text-right"> <a href="Tables">Refresh</a></p>
-
+<p class="text-right"> <a href="Admin" target = "_blank">Admin</a></p>
 <div class="card">
 	<div class="card-body">
 <h1>ORDERS</h1>
