@@ -1,28 +1,22 @@
 package controller;
 
-
-
 import java.io.IOException;
-
-import java.util.ArrayList;
-
-
 
 import java.sql.Connection;
 
 import java.sql.DriverManager;
 
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 
 import java.sql.SQLException;
 
 import java.sql.Statement;
 
+import java.util.ArrayList;
+
+import java.util.List;
 
 
-import javax.servlet.ServletConfig;
-
-import javax.servlet.ServletContext;
 
 import javax.servlet.ServletException;
 
@@ -36,59 +30,23 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/kitchen/Admin")
 
-public class AdminController extends HttpServlet {
+
+
+
+@WebServlet("/kitchen/ClearData")
+
+public class ClearDataController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 
-
-	float cost;
-
-
-
-
-
-	public void init(ServletConfig config) throws ServletException {
-
-
-
-		super.init(config);
-
-
-
-		ArrayList<String> entries = new ArrayList<String>();
-
-
-
-		entries.add("Menus");
-
-		entries.add("orders2");
-
-		entries.add("tables");
-
-
-
-		ServletContext context = this.getServletContext();
-
-		context.setAttribute("dbEntries", entries);
-
-
-
-	}
 
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 
 			throws ServletException, IOException {
-
-
-
-		int i = 1;
-
-
 
 		Connection c = null;
 
@@ -106,27 +64,17 @@ public class AdminController extends HttpServlet {
 
 			Statement stmt = c.createStatement();
 
+			String id = (request.getParameter("id"));
 
-
-			ResultSet rs = stmt.executeQuery("SELECT SUM(cost) from orders2");
-
-
-
-			while (rs.next()) {
+			int rs = stmt.executeUpdate("DELETE FROM orders2");
 
 
 
-			cost = rs.getFloat(i);
+			
 
-			}
+			
 
-
-
-		}
-
-
-
-		catch (SQLException e) {
+		} catch (SQLException e) {
 
 			throw new ServletException(e);
 
@@ -146,19 +94,7 @@ public class AdminController extends HttpServlet {
 
 		}
 
-
-
-		
-
-		ServletContext context = this.getServletContext();
-
-		context.setAttribute("cost", cost);
-
-
-
-		
-
-		request.getRequestDispatcher("/WEB-INF/Admin.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Clear.jsp").forward(request, response);
 
 
 
@@ -173,7 +109,5 @@ public class AdminController extends HttpServlet {
 		doGet(request, response);
 
 	}
-
-
 
 }

@@ -20,7 +20,7 @@
 
  <body>
 
-      <c:redirect url = "/kitchen/OMM?tableId=${tableId}"/>
+      <c:redirect url = "/kitchen/Admin"/>
 
    </body>
 

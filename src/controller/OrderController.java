@@ -54,6 +54,8 @@ public class OrderController extends HttpServlet {
 
 			throws ServletException, IOException {
 
+		String tableId;
+
 		Connection c = null;
 
 		try {
@@ -70,7 +72,9 @@ public class OrderController extends HttpServlet {
 
 			Statement stmt = c.createStatement();
 
-			String tableId = request.getParameter("tableID");
+			tableId = request.getParameter("tableID");
+
+			//reset = tableId;
 
 			String[] foods = request.getParameterValues("food");
 
@@ -104,6 +108,8 @@ public class OrderController extends HttpServlet {
 
 				stmt.executeUpdate("UPDATE Menus SET quantity = quantity - 1 WHERE id = '" + foods[i] + "'");
 
+				
+
 			}
 
 			
@@ -129,6 +135,8 @@ public class OrderController extends HttpServlet {
 			}
 
 		}
+
+		request.setAttribute("tableId", tableId);
 
 		request.getRequestDispatcher("/WEB-INF/AddUpdate.jsp").forward(request, response);
 

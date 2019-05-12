@@ -84,7 +84,7 @@ public class OMM extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+/*
 
 		
 
@@ -111,6 +111,12 @@ public class OMM extends HttpServlet {
 		}
 
 		
+
+*/		
+
+		
+
+		String tableId = request.getParameter("tableId");
 
 		
 
@@ -196,9 +202,9 @@ public class OMM extends HttpServlet {
 
 		}
 
-		
 
-		request.setAttribute("tableId", user.getId());
+
+		request.setAttribute("tableId", tableId);
 
 		request.getRequestDispatcher("/WEB-INF/OMM.jsp").forward(request, response);
 
@@ -223,3 +229,4 @@ public class OMM extends HttpServlet {
 
 
 }
+
